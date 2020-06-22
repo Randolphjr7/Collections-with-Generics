@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 
 public class JukeBox1 {
@@ -18,10 +19,30 @@ public class JukeBox1 {
         new JukeBox1().go();
     }
 
+    // inner class that implements Comparator
+    // type parameter matches the type we're going to compare - in this case song objects
+    class ArtistCompare implements Comparator<Song> {
+        public int compare(Song one, Song two) {
+            // let the String variables do the actual comparison, since
+            // Strings already know how to alphabetize themselves
+            return one.getArtist().compareTo(two.getArtist());
+        }
+    }
+
+
+
     // load the file & print song list
     public void go() {
         getSongs();
         Collections.sort(songList);
+        System.out.println(songList);
+
+        // instance of the Comprartor inner class
+        ArtistCompare artistCompare  = new ArtistCompare();
+        // if you pass a Comparator to the sort method, the sort order is determined by the Comparator
+        // rather than the element's own compareTo() method.
+        Collections.sort(songList, artistCompare);
+
         System.out.println(songList);
     }
 
