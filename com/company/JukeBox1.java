@@ -82,8 +82,8 @@ public class JukeBox1 {
         // HashSet has a simple addAll() method that can take another collection and use it to populate
         // the HashSet. It's the same as if we added each song one at a time (except much simpler)
         songSet.addAll(songList);
-        //System.out.println("\nHashSet Does Not Allow Duplicates");
-        //System.out.println(songList);
+        System.out.println("\nHashSet Does Not Allow Duplicates");
+        System.out.println(songSet);
     }
 
     // read the file & call the addSong() method for each line
