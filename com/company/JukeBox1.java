@@ -3,10 +3,7 @@ package com.company;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
+import java.util.*;
 
 
 public class JukeBox1 {
@@ -84,6 +81,13 @@ public class JukeBox1 {
         songSet.addAll(songList);
         System.out.println("\nHashSet Does Not Allow Duplicates");
         System.out.println(songSet);
+
+        // TreeSet - prevents duplicates but also keeps list sorted
+        TreeSet<Song> songTreeSet = new TreeSet<Song>();
+        songSet.addAll(songList);
+        System.out.println("\nTreeSet Does Not Allow Duplicates But Keeps List Sorted");
+        songTreeSet.addAll(songList);
+        System.out.println(songTreeSet);
     }
 
     // read the file & call the addSong() method for each line
